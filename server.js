@@ -49,15 +49,15 @@ app.set("view engine", "handlebars");
 // ==========================================================================
 
 // If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
-// var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
 
-// mongoose.connect(MONGODB_URI);
+mongoose.connect(MONGODB_URI);
 
 // ==========================================================================
 // IMPORT ROUTES
 // ==========================================================================
 //require("./controllers/apiRoutes")(app);
-//require("./controllers/htmlRoutes")(app);
+app.use(require("./controllers/htmlRoutes"));
 
 // ==========================================================================
 // SERVER STARTUP
